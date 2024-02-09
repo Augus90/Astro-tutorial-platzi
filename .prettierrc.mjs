@@ -2,19 +2,19 @@
 
 /** @type {import("prettier").Config} */
 const config = {
-  semi: false,
-  singleQuote: false,
-  tabWidth: 2,
-  useTabs: true,
-  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
-  overrides: [
-    {
-      files: "**/*astro",
-      options: {
-        parser: "astro",
-      },
-    },
-  ],
-};
+	semi: true,
+	singleQuote: false,
+	tabWidth: 2,
+	useTabs: true,
+	plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+	overrides: [
+		{
+			files: "**/*astro",
+			options: {
+				parser: "astro",
+			},
+		},
+	],
+}
 
-export default config;
+export default config

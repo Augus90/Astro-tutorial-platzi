@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer.vue";
+import Social from "../../components/Social.svelte";
+
+// Define una función asíncrona para obtener las rutas estáticas
+export async function getStaticPaths() {
+	// Obtiene una colección de datos llamada "tips"
+	const posts = await getCollection("tips");
+	// Mapea los datos y devuelve un array de objetos con propiedades "params" y "props"
+	return posts.map((post) => ({
+		params: { slug: post.slug }, // Cada objeto tiene un parámetro "slug"
+		props: post, // Cada objeto tiene todas las propiedades del post
+	}));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<Base title="AstroBuild.tips">
+	<Header title="AstroBuild.tips" />
+	<Content />
+	<Social />
+	<Footer />
+</Base>
