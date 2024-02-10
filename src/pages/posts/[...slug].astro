@@ -4,6 +4,7 @@ import Base from "../../layouts/Base.astro";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer.vue";
 import Social from "../../components/Social.svelte";
+import HeaderTop from "../../components/HeaderTop";
 
 // Define una función asíncrona para obtener las rutas estáticas
 export async function getStaticPaths() {
@@ -21,6 +22,7 @@ const { Content } = await post.render();
 ---
 
 <Base title="AstroBuild.tips">
+	<HeaderTop client:load />
 	<Header title="AstroBuild.tips" />
 	<Content />
 	<Social />
